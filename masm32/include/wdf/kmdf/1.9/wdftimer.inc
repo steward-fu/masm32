@@ -217,10 +217,10 @@ WdfTimerStart endp
 ;//{
 ;//    return ((PFN_WDFTIMERSTOP) WdfFunctions[WdfTimerStopTableIndex])(WdfDriverGlobals, Timer, Wait);
 ;//}
-FN_WDFTIMERSTOP typedef proto WDFAPI :PWDF_DRIVER_GLOBALS, :WDFTIMER, :BOOLEAN
+FN_WDFTIMERSTOP typedef proto WDFAPI :PWDF_DRIVER_GLOBALS, :WDFTIMER, :dword
 PFN_WDFTIMERSTOP typedef ptr FN_WDFTIMERSTOP
 .code
-WdfTimerStop proc Timer:WDFTIMER, _Wait:BOOLEAN
+WdfTimerStop proc Timer:WDFTIMER, _Wait:dword
   mov eax, WdfFunctions
   add eax, WdfTimerStopTableIndex * PFN_WDFTIMERSTOP
   invoke (FN_WDFTIMERSTOP ptr [eax]), WdfDriverGlobals, Timer, _Wait
