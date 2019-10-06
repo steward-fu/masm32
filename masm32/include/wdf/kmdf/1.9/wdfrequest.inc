@@ -92,7 +92,7 @@ PFN_WDFREQUESTCOMPLETEWITHINFORMATION typedef ptr FN_WDFREQUESTCOMPLETEWITHINFOR
 .code
 WdfRequestCompleteWithInformation proc Request:WDFREQUEST, Status:NTSTATUS, Information:DWORD
   mov eax, WdfFunctions
-  add eax, WdfRequestCompleteWithInformationTableIndex * PFN_WDFREQUESTCOMPLETE
+  add eax, WdfRequestCompleteWithInformationTableIndex * PFN_WDFREQUESTCOMPLETEWITHINFORMATION
   invoke (FN_WDFREQUESTCOMPLETEWITHINFORMATION ptr [eax]), WdfDriverGlobals, Request, Status, Information
   ret
 WdfRequestCompleteWithInformation endp
