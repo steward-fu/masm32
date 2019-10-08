@@ -131,7 +131,7 @@ PFN_WDFREQUESTRETRIEVEOUTPUTMEMORY typedef ptr FN_WDFREQUESTRETRIEVEOUTPUTMEMORY
 .code
 WdfRequestRetrieveOutputMemory proc Request:WDFREQUEST, Memory:PWDFMEMORY
   mov eax, WdfFunctions
-  add eax, WdfRequestRetrieveOutputMemoryTableIndex * PFN_WDFREQUESTCOMPLETE
+  add eax, WdfRequestRetrieveOutputMemoryTableIndex * PFN_WDFREQUESTRETRIEVEOUTPUTMEMORY
   invoke (FN_WDFREQUESTRETRIEVEOUTPUTMEMORY ptr [eax]), WdfDriverGlobals, Request, Memory
   ret
 WdfRequestRetrieveOutputMemory endp
